@@ -55,7 +55,7 @@ ROOT_URLCONF = 'encuestas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['encuestas/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
