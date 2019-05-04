@@ -5,4 +5,4 @@ from.models import Encuesta
 
 def encusta_lista(request):
     encuestas = Encuesta.objects.all()
-    return HttpResponse(encuestas)
+    return render(request, 'encuestas/encuesta_list.html', {'encuestas': encuestas})
