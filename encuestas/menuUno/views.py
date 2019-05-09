@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 from.models import Encuesta
@@ -9,5 +9,6 @@ def encusta_lista(request):
 
 
 def encuesta_detail(request, pk): 
-    encuesta = Encuesta.objects.get(pk=pk)
+    # encuesta = Encuesta.objects.get(pk=pk)
+    encuesta = get_object_or_404(Encuesta, pk=pk)
     return render(request, 'encuestas/detalle_encuesta.html', {'encuesta': encuesta})
