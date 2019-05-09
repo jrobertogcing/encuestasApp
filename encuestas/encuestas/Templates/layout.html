@@ -10,6 +10,11 @@
 </head>
 <body>
     <div class="site-container">
+        <nav>
+            <a href="{% url 'home' %}">Apprende - Home</a>
+            <a href="{% url 'encuesta_list' %}">Encuestas</a>
+
+        </nav>
         {% block content %}{% endblock %}
     </div>
 </body>
