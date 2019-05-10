@@ -4,7 +4,9 @@
 
 {% block content %}
 <article>
-    <h2>{{ persona.encuesta.title }}</h2>
+    <h2>
+        <a href="{% url 'menuUno:encuesta_detail' pk=persona.encuesta.pk %}">{{ persona.encuesta.title }}</a>
+    </h2>
     {{ persona.encuesta.description }}
     <h1>Nombre del encuestado-{{ persona.name }} </h1>
     {{persona.lastName|linebreaks}}
