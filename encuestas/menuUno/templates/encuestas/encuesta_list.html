@@ -1,4 +1,16 @@
-{% for encuesta in encuestas %}
-    <h2>{{encuesta.title}}</h2>
-    {{ encuesta.description}}
-{% endfor %}
+{% extends "layout.html" %}
+
+{% block title %}Encuestas-Valeria Miranda{% endblock %}}
+
+{% block content %}
+    <div class="cards">
+        {% for encuesta in encuestas %}
+            <div class="card">
+                <header><a href="#">{{encuesta.title}}</a></header>
+                <div class="card-copy">
+                    {{encuesta.description}}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
