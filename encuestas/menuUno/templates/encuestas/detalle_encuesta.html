@@ -7,6 +7,7 @@
 <article>
     <h2>{{ encuesta.title }}</h2>
     {{ encuesta.description}}
+    <p>Esta encuesta tiene el siguiente número de encuestados {{ encuesta.persona_set.count }} y son : {{ encuesta.persona_set.all|join:", " }}</p>
     <section>
         {% for persona in encuesta.persona_set.all %}
             <h3>
