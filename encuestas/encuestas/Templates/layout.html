@@ -13,7 +13,8 @@
         <nav>
             <a href="{% url 'home' %}">Apprende - Home</a>
             <a href="{% url 'menuUno:encuesta_list' %}">Encuestas</a>
-
+            <a href="{% url 'menuUno:encuesta_create' %}">Crear encuesta</a>
+            <a href="{% url 'menuUno:persona_create' %}">Crear persona</a>
         </nav>
         {% block content %}{% endblock %}
     </div>
