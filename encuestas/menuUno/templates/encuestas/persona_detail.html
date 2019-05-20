@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %}  {% endblock %}
+{% block title %} Detalles cliente {% endblock %}
 
 {% block content %}
 <div class="cards">
@@ -14,4 +14,15 @@
         </div>      
     </div>
 </div>
+
+<div class="cards">
+        {% for nota in persona.nota_set.all %}
+            <div class="card">
+               <header>Nota:{{nota.auto_id_nota}} - {{nota.tipo}}</header>
+                <div class="card-copy">
+                    Nombre del cliente:{{persona.nombre|linebreaks }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

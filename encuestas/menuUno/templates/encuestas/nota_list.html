@@ -6,6 +6,7 @@
     <div class="cards">
         {% for nota in notas %}
             <div class="card">
+                <header><a href="{% url 'menuUno:nota_detail' pk=nota.pk %}">Nota:{{persona.auto_id_cliente}} {{persona.nombre}} {{persona.apellido}}</a></header>
                <header>Nota:{{nota.auto_id_nota}} - {{nota.tipo}}</header>
                 <div class="card-copy">
                     Nombre del cliente:{{persona.nombre|linebreaks }}

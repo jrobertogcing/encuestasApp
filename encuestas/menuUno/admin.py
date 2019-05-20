@@ -4,13 +4,13 @@ from django.contrib import admin
 
 from .models import Persona, Nota
 
-# class PersonInLine(admin.TabularInline):
-#     model = Persona
+class NotaInLine(admin.TabularInline):
+    model = Nota
 
-# class PersonaAdmin(admin.ModelAdmin):
-#     inlines = [PersonInLine, ]
+class PersonaAdmin(admin.ModelAdmin):
+    inlines = [NotaInLine, ]
 
-admin.site.register(Persona)
+admin.site.register(Persona, PersonaAdmin)
 admin.site.register(Nota)
 
  

@@ -83,12 +83,14 @@ def nota_create_view(request):
 #     return render(request, 'encuestas/detalle_encuesta.html', {'encuesta': encuesta})
 
 def persona_detail(request, pk):
+    notas = Nota.objects.all()
     persona = get_object_or_404(Persona, pk=pk)
-    return render(request, 'encuestas/persona_detail.html',{'persona': persona})
+    return render(request, 'encuestas/persona_detail.html',{'persona': persona ,'notas' : notas})
 
 def persona_lista(request):
+    notas = Nota.objects.all()
     personas = Persona.objects.all()
-    return render(request, 'encuestas/persona_list.html', {'personas': personas})
+    return render(request, 'encuestas/persona_list.html', {'personas': personas} , { 'notas' : notas})
 
 def nota_lista(request):
     notas = Nota.objects.all()
