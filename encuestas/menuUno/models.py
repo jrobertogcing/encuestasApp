@@ -34,7 +34,7 @@ class Nota(models.Model):
         ordering = ['auto_id_nota', ]
 
     def __str__(self):
-        return self.auto_id_nota
+        return str(self.auto_id_nota)
 
 
 # Create your models here.

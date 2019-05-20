@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Here you set the model in admin panel.
 
-from .models import Persona
+from .models import Persona, Nota
 
 # class PersonInLine(admin.TabularInline):
 #     model = Persona
@@ -11,4 +11,6 @@ from .models import Persona
 #     inlines = [PersonInLine, ]
 
 admin.site.register(Persona)
+admin.site.register(Nota)
+
  

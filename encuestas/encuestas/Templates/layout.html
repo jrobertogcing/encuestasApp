@@ -11,10 +11,11 @@
 <body>
     <div class="site-container">
         <nav>
-            <a href="{% url 'home' %}">Notas Reset Systems - Home</a>
+            <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'menuUno:persona_create' %}">Registrar cliente</a>
             <a href="{% url 'menuUno:persona_list' %}">Lista de clientes</a>
             <a href="{% url 'menuUno:nota_create' %}">Crear Nota</a>
+            <a href="{% url 'menuUno:nota_list' %}">Lista de Notas</a>
         </nav>
         {% block content %}{% endblock %}
     </div>

@@ -82,10 +82,18 @@ def nota_create_view(request):
 #     encuesta = get_object_or_404(Encuesta, pk=pk)
 #     return render(request, 'encuestas/detalle_encuesta.html', {'encuesta': encuesta})
 
-def persona_detail(request, encuesta_pk, persona_pk):
-    persona = get_object_or_404(Persona, encuesta_id=encuesta_pk, pk=persona_pk)
+def persona_detail(request, pk):
+    persona = get_object_or_404(Persona, pk=pk)
     return render(request, 'encuestas/persona_detail.html',{'persona': persona})
 
 def persona_lista(request):
     personas = Persona.objects.all()
     return render(request, 'encuestas/persona_list.html', {'personas': personas})
+
+def nota_lista(request):
+    notas = Nota.objects.all()
+    return render(request, 'encuestas/nota_list.html', {'notas': notas})
+
+def nota_detail(request, encuesta_pk, persona_pk):
+    nota = get_object_or_404(Nota, nota_id=nota_pk, pk=persona_pk)
+    return render(request, 'encuestas/nota_detail.html',{'nota': nota})

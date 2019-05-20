@@ -1,16 +1,17 @@
 {% extends "layout.html" %}
 
-{% block title %} {{persona.nombre} - {{persona.apellido}} {% endblock %}
+{% block title %}  {% endblock %}
 
 {% block content %}
-<article>
-    <h2>
-        <!-- <a href="{% url 'menuUno:persona_detail' pk=persona.pk %}">{{ persona.name }}</a> -->
-    </h2>
-    {{ persona.encuesta.description }}
-    <h1>Nombre del encuestado-{{ persona.name }} </h1>
-    {{persona.lastName|linebreaks}}
-    {{persona.ocupación|linebreaks}}
-    {{persona.redSocialUno|linebreaks}}
-</article>
+<div class="cards">
+    <div class="card">
+        <header> Nombre: {{ persona.nombre }} {{ persona.apellido }} </header>
+        <div class="card-copy">
+            Teléfono celular:{{persona.celular|linebreaks }}
+            Teléfono :{{persona.telefono|linebreaks}}
+            Email: {{persona.email|linebreaks}}
+            Información: {{persona.info|linebreaks}}
+        </div>      
+    </div>
+</div>
 {% endblock %}
