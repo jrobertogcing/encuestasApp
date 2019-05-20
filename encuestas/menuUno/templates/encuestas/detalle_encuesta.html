@@ -11,7 +11,7 @@
     <section>
         {% for persona in encuesta.persona_set.all %}
             <h3>
-                <a href="{% url 'menuUno:persona_detail' encuesta_pk=persona.encuesta.pk persona_pk=persona.pk %}">{{persona.name}}</a>
+                <!-- <a href="{% url 'menuUno:persona_detail' encuesta_pk=persona.encuesta.pk persona_pk=persona.pk %}">{{persona.name}}</a> -->
             </h3>
             {{ persona.redSocialUno }}
         {% endfor %}

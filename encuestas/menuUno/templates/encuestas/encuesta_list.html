@@ -6,7 +6,7 @@
     <div class="cards">
         {% for encuesta in encuestas %}
             <div class="card">
-                <header><a href="{% url 'menuUno:encuesta_detail' pk=encuesta.pk %}">{{encuesta.title}}</a></header>
+                <!-- <header><a href="{% url 'menuUno:encuesta_detail' pk=encuesta.pk %}">{{encuesta.title}}</a></header> -->
                 <div class="card-copy">
                     {{encuesta.description}}
                 </div>
