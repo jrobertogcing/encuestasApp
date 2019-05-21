@@ -8,7 +8,7 @@
             <div class="card">
                <header><a href="{% url 'menuUno:persona_detail' pk=persona.pk %}">Nota:{{persona.auto_id_cliente}} {{persona.nombre}} {{persona.apellido}}</a></header>
                 <div class="card-copy">
-                    Número de notas:
+                    Número de notas: {{persona.nota_set.count}}
                 </div>
             </div>
         {% endfor %}
