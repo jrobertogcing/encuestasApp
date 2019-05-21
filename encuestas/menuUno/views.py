@@ -90,12 +90,13 @@ def persona_detail(request, pk):
 def persona_lista(request):
     notas = Nota.objects.all()
     personas = Persona.objects.all()
-    return render(request, 'encuestas/persona_list.html', {'personas': personas} , { 'notas' : notas})
+    return render(request, 'encuestas/persona_list.html', {'personas': personas,  'notas' : notas})
+
+def nota_detail(request, persona_pk, nota_pk,):
+    nota = get_object_or_404(Nota, person_id = persona_pk, pk = nota_pk)
+    persona = get_object_or_404(Persona, pk=persona_pk)
+    return render(request, 'encuestas/nota_detail.html', {'persona': persona, 'nota': nota})
 
 def nota_lista(request):
     notas = Nota.objects.all()
     return render(request, 'encuestas/nota_list.html', {'notas': notas})
-
-def nota_detail(request, encuesta_pk, persona_pk):
-    nota = get_object_or_404(Nota, nota_id=nota_pk, pk=persona_pk)
-    return render(request, 'encuestas/nota_detail.html',{'nota': nota})

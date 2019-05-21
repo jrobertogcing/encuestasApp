@@ -8,7 +8,7 @@
         <header> Nombre: {{ persona.nombre }} {{ persona.apellido }} </header>
         <div class="card-copy">
             Teléfono celular:{{persona.celular|linebreaks }}
-            Teléfono :{{persona.telefono|linebreaks}}
+            Teléfono: {{persona.telefono|linebreaks}}
             Email: {{persona.email|linebreaks}}
             Información: {{persona.info|linebreaks}}
         </div>      
@@ -18,9 +18,12 @@
 <div class="cards">
         {% for nota in persona.nota_set.all %}
             <div class="card">
-               <header>Nota:{{nota.auto_id_nota}} - {{nota.tipo}}</header>
+                    <header>
+                        <a href="{% url 'menuUno:nota_detail' persona_pk=nota.person.pk nota_pk=nota.pk%}">Número: {{nota.auto_id_nota}}</a>
+                    </header>
                 <div class="card-copy">
-                    Nombre del cliente:{{persona.nombre|linebreaks }}
+                    Fecha y hora de ingreso: {{nota.created_at|date:"M d, Y. h:m:s"|linebreaks}}
+                    Tipo de nota:{{nota.tipo|linebreaks }}
                 </div>
             </div>
         {% endfor %}
