@@ -3,9 +3,22 @@
 {% block title %} Detalle Nota {% endblock %}
 
 {% block content %}
-<article>
-   
-    <h2>Número de nota: {{nota.auto_id_nota}}  {{persona.nombre}}</h2>
-   
-</article>
+    <div class="cards">
+        {% for item in items %}
+            <div class="card">
+                <!-- <header><a href="{% url 'menuUno:nota_detail' pk=nota.pk %}">Nota:{{persona.auto_id_cliente}} {{persona.nombre}} {{persona.apellido}}</a></header> -->
+                <header>Nota:{{nota.auto_id_nota}}. Cliente: {{persona.nombre}} {{persona.apellido}} - {{nota.tipo}}</header>
+                <div class="card-copy">
+                    Descripción:{{item.descripción|linebreaks }}
+                    Número de serie:{{item.serie|linebreaks }}
+                    Password:{{item.password|linebreaks }}
+                    Cargador:{{item.cargador|linebreaks }}
+                    Funda:{{item.funda|linebreaks }}
+                    Cables:{{item.cables|linebreaks }}
+                    Cartuchos:{{item.cartuchos|linebreaks }}
+                    Falla:{{item.falla|linebreaks }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 
 
 from .forms import  RawPersonaForm, RawNotaForm
-from.models import Persona, Nota
+from.models import Persona, Nota, Item
 
 # def encuesta_create_view(request):
 #     my_form = RawEncuestaForm()
@@ -95,7 +95,8 @@ def persona_lista(request):
 def nota_detail(request, persona_pk, nota_pk,):
     nota = get_object_or_404(Nota, person_id = persona_pk, pk = nota_pk)
     persona = get_object_or_404(Persona, pk=persona_pk)
-    return render(request, 'encuestas/nota_detail.html', {'persona': persona, 'nota': nota})
+    items = Item.objects.all()
+    return render(request, 'encuestas/nota_detail.html', {'persona': persona, 'nota': nota, 'items': items})
 
 def nota_lista(request):
     notas = Nota.objects.all()

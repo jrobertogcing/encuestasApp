@@ -1,10 +1,17 @@
 from django import forms
 
 
-from .models import Persona, Nota
+from .models import Persona, Nota, Item
 # from .models import Nota
 
 NOTA_CHOICES= [
+    ('servicio_cliente', 'Cliente particular'),
+    ('servicio_empresa', 'Empresa'),
+    ('venta', 'Venta'),
+    ('garantia', 'Garantía'),
+    ]
+
+PERSONA_CHOICES = [
     ('servicio_cliente', 'Cliente particular'),
     ('servicio_empresa', 'Empresa'),
     ('venta', 'Venta'),
@@ -21,7 +28,18 @@ class RawPersonaForm(forms.Form):
 
 class RawNotaForm(forms.Form):
     tipo = forms.CharField(label='¿Qué tipo de nota es?', widget=forms.Select(choices=NOTA_CHOICES))
+    receptor = forms.CharField(required=True)
 
+class RawItemForm(forms.Form):
+    descripción = forms.CharField(required=True)
+    serie = forms.CharField(required=True)
+    password = forms.CharField(required=True)
+    cargador = forms.CharField(required=True)
+    funda = forms.CharField(required=True)
+    cables = forms.CharField(required=True)
+    cartuchos = forms.CharField(required=True)
+    falla = forms.CharField(required=True)
+ 
 
 # class PersonaForm(forms.ModelForm):
 #     class Meta:
