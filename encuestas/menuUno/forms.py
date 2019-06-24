@@ -30,6 +30,19 @@ class RawNotaForm(forms.Form):
     tipo = forms.CharField(label='¿Qué tipo de nota es?', widget=forms.Select(choices=NOTA_CHOICES))
     receptor = forms.CharField(required=True)
 
+
+class NotaForm(forms.ModelForm):
+    class Meta:
+        model = Nota
+        fields = (
+            'tipo',
+            'person',
+        )
+        widgets = {
+            'tipo': forms.Select(choices=NOTA_CHOICES),
+        }
+
+
 class RawItemForm(forms.Form):
     descripción = forms.CharField(required=True)
     serie = forms.CharField(required=True)
