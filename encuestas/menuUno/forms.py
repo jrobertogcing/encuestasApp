@@ -4,7 +4,7 @@ from django import forms
 from .models import Persona, Nota, Item
 # from .models import Nota
 
-NOTA_CHOICES= [
+NOTA_CHOICES = [
     ('servicio_cliente', 'Cliente particular'),
     ('servicio_empresa', 'Empresa'),
     ('venta', 'Venta'),
