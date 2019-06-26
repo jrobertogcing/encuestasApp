@@ -2,6 +2,7 @@ virtualOne/
 ../.DS_Store
 .DS_Store
 
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -98,6 +99,7 @@ celerybeat-schedule
 .venv
 venv/
 ENV/
+virtual/
 .vscode
 # Spyder project settings
 .spyderproject
