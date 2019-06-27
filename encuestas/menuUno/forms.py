@@ -37,11 +37,26 @@ class NotaForm(forms.ModelForm):
         fields = (
             'tipo',
             'person',
+            'receptor'
         )
         widgets = {
             'tipo': forms.Select(choices=NOTA_CHOICES),
         }
 
+class ItemForm(forms.ModelForm):
+    class Meta:
+        model = Item
+        fields = (
+            'nota',
+            'descripción',
+            'serie',
+            'password',
+            'cargador',
+            'funda',
+            'cables',
+            'cartuchos',
+            'falla',
+        )
 
 class RawItemForm(forms.Form):
     descripción = forms.CharField(required=True)

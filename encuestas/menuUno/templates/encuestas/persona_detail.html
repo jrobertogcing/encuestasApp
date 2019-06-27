@@ -19,13 +19,45 @@
         {% for nota in persona.nota_set.all %}
             <div class="card">
                     <header>
-                        <a href="{% url 'menuUno:nota_detail' persona_pk=nota.person.pk nota_pk=nota.pk%}">Número: {{nota.auto_id_nota}}</a>
+                        <a href="{% url 'menuUno:nota_detail' persona_pk=nota.person.pk nota_pk=nota.pk%}">Nota: {{nota.auto_id_nota}}</a>
                     </header>
                 <div class="card-copy">
                     Fecha y hora de ingreso: {{nota.created_at|date:"M d, Y. h:m:s"|linebreaks}}
                     Tipo de nota:{{nota.tipo|linebreaks }}
                 </div>
+            {% with i=0 %}     
+            {% for item in nota.item_set.all %}
+            <div class="card">
+                <header>
+                    <a href=>Item</a>
+                </header>
+                <table>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Número de serie</th>
+                        <th>Password</th>
+                        <th>Cargador</th>
+                        <th>Funda</th>
+                        <th>Cables</th>
+                        <th>Cartuchos</th>
+                        <th>Falla</th>
+                    </tr>
+                    <tr> 
+                        <td>{{ item.descripción }}</td>
+                        <td>{{ item.serie }}</td>
+                        <td>{{ item.password }}</td>
+                        <td>{{ item.cargador }}</td>
+                        <td>{{ item.funda }}</td>
+                        <td>{{ item.cables }}</td>
+                        <td>{{ item.cartuchos }}</td>
+                        <td>{{ item.falla }}</td>
+                    </tr>
+                </table>
+            </div>
+            {% endfor %}
+            {% endwith %}
             </div>
         {% endfor %}
-    </div>
+        
+</div>
 {% endblock %}

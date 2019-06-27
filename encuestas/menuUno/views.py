@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from .forms import RawPersonaForm, RawNotaForm, NotaForm
+from .forms import RawPersonaForm, RawNotaForm, NotaForm, ItemForm
 from.models import Persona, Nota, Item
 
 # def encuesta_create_view(request):
@@ -61,6 +61,13 @@ class NotaCreateView(CreateView):
     template_name = "encuestas/nota_create.html"
     success_url = reverse_lazy("menuUno:nota_create")
 
+class ItemCreateView(CreateView):
+
+    model = Item
+    form_class = ItemForm
+    template_name = "encuestas/item_create.html"
+    success_url = reverse_lazy("menuUno:item_create")
+
 
 # def persona_create_view(request):
 #     form = PersonaForm(request.POST or None)
@@ -96,7 +103,8 @@ class NotaCreateView(CreateView):
 def persona_detail(request, pk):
     notas = Nota.objects.all()
     persona = get_object_or_404(Persona, pk=pk)
-    return render(request, 'encuestas/persona_detail.html',{'persona': persona, 'notas' : notas})
+    item = Item.objects.all()
+    return render(request, 'encuestas/persona_detail.html',{'persona': persona, 'notas' : notas, 'item' : item})
 
 def persona_lista(request):
     notas = Nota.objects.all()

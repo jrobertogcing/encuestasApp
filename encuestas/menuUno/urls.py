@@ -12,5 +12,7 @@ urlpatterns = [
     path('<int:pk>/', views.nota_detail, name='nota_detail'),
     path('createPersona/', views.persona_create_view, name='persona_create'),
     path('createNota/', views.NotaCreateView.as_view(), name='nota_create'),
+    path('createItem/', views.ItemCreateView.as_view(), name='item_create'),
+
 
 ]

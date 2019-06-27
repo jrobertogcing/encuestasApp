@@ -6,7 +6,7 @@
     <div class="cards">
         {% for persona in personas %}
             <div class="card">
-               <header><a href="{% url 'menuUno:persona_detail' pk=persona.pk %}">Nota:{{persona.auto_id_cliente}} {{persona.nombre}} {{persona.apellido}}</a></header>
+               <header><a href="{% url 'menuUno:persona_detail' pk=persona.pk %}">Número Cliente:{{persona.auto_id_cliente}} {{persona.nombre}} {{persona.apellido}}</a></header>
                 <div class="card-copy">
                     Número de notas: {{persona.nota_set.count}}
                 </div>
