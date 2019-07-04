@@ -4,21 +4,47 @@
 
 {% block content %}
     <div class="cards">
-        {% for item in items %}
-            <div class="card">
-                <!-- <header><a href="{% url 'menuUno:nota_detail' pk=nota.pk %}">Nota:{{persona.auto_id_cliente}} {{persona.nombre}} {{persona.apellido}}</a></header> -->
-                <header>Nota:{{nota.auto_id_nota}}. Cliente: {{persona.nombre}} {{persona.apellido}} - {{nota.tipo}}</header>
-                <div class="card-copy">
-                    Descripción:{{item.descripción|linebreaks }}
-                    Número de serie:{{item.serie|linebreaks }}
-                    Password:{{item.password|linebreaks }}
-                    Cargador:{{item.cargador|linebreaks }}
-                    Funda:{{item.funda|linebreaks }}
-                    Cables:{{item.cables|linebreaks }}
-                    Cartuchos:{{item.cartuchos|linebreaks }}
-                    Falla:{{item.falla|linebreaks }}
+                <div class="card">
+                        <header>
+                            <a>Nota: {{nota.auto_id_nota}}</a>
+                        </header>
+                    <div class="card-copy">
+                        {% load static %} <img src="{% static "images/logoreset.png" %}" alt="Reset Systems" height="31" width="82" />
+    
+                        <h3>Reset Systems.  &nbsp;&nbsp;&nbsp;&nbsp;  Teléfono: 574 97 97.  &nbsp;&nbsp;&nbsp;&nbsp;  Dirección: 8 Sur 3102. Puebla, México &nbsp;&nbsp;&nbsp;&nbsp; resetcompany.net</h3>
+                        <p>Nombre: {{ persona.nombre }} {{ persona.apellido }}</p>
+                        <p>Fecha y hora de ingreso: {{nota.created_at|date:"M d, Y. h:m:s"}}</p>
+                        <p>Nota:{{nota.tipo}}</p>
+                    </div>
+                {% for item in nota.item_set.all %}
+                <div class="card">
+                    <header>
+                        <a>Item</a>
+                    </header>
+                    <table>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Número de serie</th>
+                            <th>Password</th>
+                            <th>Cargador</th>
+                            <th>Funda</th>
+                            <th>Cables</th>
+                            <th>Cartuchos</th>
+                            <th>Falla</th>
+                        </tr>
+                        <tr> 
+                            <td>{{ item.descripción }}</td>
+                            <td>{{ item.serie }}</td>
+                            <td>{{ item.password }}</td>
+                            <td>{{ item.cargador }}</td>
+                            <td>{{ item.funda }}</td>
+                            <td>{{ item.cables }}</td>
+                            <td>{{ item.cartuchos }}</td>
+                            <td>{{ item.falla }}</td>
+                        </tr>
+                    </table>
                 </div>
-            </div>
-        {% endfor %}
+                {% endfor %}
+            </div>            
     </div>
 {% endblock %}

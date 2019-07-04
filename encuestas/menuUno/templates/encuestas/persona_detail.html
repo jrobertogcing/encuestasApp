@@ -3,14 +3,21 @@
 {% block title %} Detalles cliente {% endblock %}
 
 {% block content %}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
 <div class="cards">
     <div class="card">
         <header> Nombre: {{ persona.nombre }} {{ persona.apellido }} </header>
         <div class="card-copy">
-            Teléfono celular:{{persona.celular|linebreaks }}
-            Teléfono: {{persona.telefono|linebreaks}}
-            Email: {{persona.email|linebreaks}}
-            Información: {{persona.info|linebreaks}}
+            <p>Teléfono celular:{{persona.celular}}</p>
+            <p>Teléfono: {{persona.telefono}}</p>
+            <p>Email: {{persona.email}}</p>
+            <p>Información: {{persona.info}}</p>
         </div>      
     </div>
 </div>
@@ -22,14 +29,17 @@
                         <a href="{% url 'menuUno:nota_detail' persona_pk=nota.person.pk nota_pk=nota.pk%}">Nota: {{nota.auto_id_nota}}</a>
                     </header>
                 <div class="card-copy">
-                    Fecha y hora de ingreso: {{nota.created_at|date:"M d, Y. h:m:s"|linebreaks}}
-                    Tipo de nota:{{nota.tipo|linebreaks }}
+                    {% load static %} <img src="{% static "images/logoreset.png" %}" alt="Reset Systems" height="31" width="82" />
+
+                    <h3>Reset Systems.  &nbsp;&nbsp;&nbsp;&nbsp;  Teléfono: 574 97 97.  &nbsp;&nbsp;&nbsp;&nbsp;  Dirección: 8 Sur 3102. Puebla, México &nbsp;&nbsp;&nbsp;&nbsp; resetcompany.net</h3>
+                    <p>Nombre: {{ persona.nombre }} {{ persona.apellido }}</p>
+                    <p>Fecha y hora de ingreso: {{nota.created_at|date:"M d, Y. h:m:s"}}</p>
+                    <p>Nota:{{nota.tipo}}</p>
                 </div>
-            {% with i=0 %}     
             {% for item in nota.item_set.all %}
             <div class="card">
                 <header>
-                    <a href=>Item</a>
+                    <a>Item</a>
                 </header>
                 <table>
                     <tr>
@@ -55,7 +65,6 @@
                 </table>
             </div>
             {% endfor %}
-            {% endwith %}
             </div>
         {% endfor %}
         
