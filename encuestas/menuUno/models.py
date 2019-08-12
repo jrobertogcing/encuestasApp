@@ -29,7 +29,7 @@ class Nota(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     tipo = models.CharField(max_length=255)
     receptor = models.CharField(max_length=255)
-    cliente = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    person = models.ForeignKey(Persona, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.auto_id_nota)
