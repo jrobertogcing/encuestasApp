@@ -27,7 +27,7 @@ def persona_create_view(request):
     if request.method == "POST":
         my_form = RawPersonaForm(request.POST)
         if my_form.is_valid():
-            print(my_form.cleaned_data)
+           # print(my_form.cleaned_data)
             Persona.objects.create(**my_form.cleaned_data)
             return redirect('menuUno:persona_list')
         else:

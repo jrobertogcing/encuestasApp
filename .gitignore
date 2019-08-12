@@ -2,3 +2,13 @@ virtualOne/
 ../.DS_Store
 .DS_Store
 virtual/
+../assets/admin/
+wsgi.pyc
+../static/
+../../env/
+../../venv/
+encuestas/assets/admin/
+encuestas/encuestas/wsgi.pyc
+encuestas/static/
+env/
+venv/
