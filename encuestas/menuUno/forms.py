@@ -22,9 +22,9 @@ class RawPersonaForm(forms.Form):
     nombre = forms.CharField(required=True)
     apellido = forms.CharField(required=True)
     celular = forms.CharField(required=True)
-    telefono = forms.CharField(required=True)
-    email = forms.CharField(required=True)
-    info = forms.CharField(required=True)
+    telefono = forms.CharField(required=False)
+    email = forms.CharField(required=False)
+    info = forms.CharField(required=False)
 
 class RawNotaForm(forms.Form):
     tipo = forms.CharField(label='¿Qué tipo de nota es?', widget=forms.Select(choices=NOTA_CHOICES))
@@ -61,11 +61,11 @@ class ItemForm(forms.ModelForm):
 class RawItemForm(forms.Form):
     descripción = forms.CharField(required=True)
     serie = forms.CharField(required=True)
-    password = forms.CharField(required=True)
-    cargador = forms.CharField(required=True)
-    funda = forms.CharField(required=True)
-    cables = forms.CharField(required=True)
-    cartuchos = forms.CharField(required=True)
+    password = forms.CharField(required=False)
+    cargador = forms.CharField(required=False)
+    funda = forms.CharField(required=False)
+    cables = forms.CharField(required=False)
+    cartuchos = forms.CharField(required=False)
     falla = forms.CharField(required=True)
  
 
