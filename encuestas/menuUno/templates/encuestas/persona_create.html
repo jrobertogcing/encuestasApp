@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 
-{% block title %}Encuestas-Valeria Miranda{% endblock %}}
+{% block title %}Notas - Reset Systems{% endblock %}}
 
 {% block content %}
+        <h3>Registrar cliente nuevo</h3>
         <form method="POST"> {% csrf_token %}
         {{form.as_p}}
         <input  type='submit' value='Save' />  
