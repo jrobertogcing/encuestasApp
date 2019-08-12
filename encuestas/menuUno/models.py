@@ -22,7 +22,7 @@ class Persona(models.Model):
         ordering = ['auto_id_cliente', ]
 
     def __str__(self):
-        return self.nombre + ' ' + self.apellido + ' (' + self.info + ')'
+        return self.nombre + ' ' + self.apellido + ' ' + self.info
 
 class Nota(models.Model):
     auto_id_nota = models.AutoField(primary_key=True)  
@@ -32,7 +32,7 @@ class Nota(models.Model):
     person = models.ForeignKey(Persona, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.auto_id_nota)
+        return 'No.:' + str(self.auto_id_nota) + ' ' + self.person.nombre + ' ' + self.person.apellido
 
 class Item(models.Model):
     auto_id_item = models.AutoField(primary_key=True)     
