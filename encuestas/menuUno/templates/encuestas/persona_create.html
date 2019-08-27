@@ -3,9 +3,26 @@
 {% block title %}Notas - Reset Systems{% endblock %}}
 
 {% block content %}
-        <h3>Registrar cliente nuevo</h3>
-        <form method="POST"> {% csrf_token %}
-        {{form.as_p}}
-        <input  type='submit' value='Save' />  
-   </form>
+    <div class="cards">
+        <div class="card">
+            <header>Registrar cliente nuevo</header>
+            <div class="card-copy">
+                <form method="POST"> {% csrf_token %}
+                {{form.as_p}}
+                <input  type='submit' value='Save' />  
+                </form>
+            </div>  
+        </div>  
+    </div>  
+        <h3>Listado de clientes</h3>
+        <div class="cards">
+            {% for persona in personas %}
+                <div class="card">
+                   <header><a href="{% url 'menuUno:persona_detail' pk=persona.pk %}">Número Cliente:{{persona.auto_id_cliente}} {{persona.nombre}} {{persona.apellido}}</a></header>
+                    <div class="card-copy">
+                        Número de notas: {{persona.nota_set.count}}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
 {% endblock %}

@@ -22,7 +22,7 @@ class Persona(models.Model):
         ordering = ['auto_id_cliente', ]
 
     def __str__(self):
-        return self.nombre + ' ' + self.apellido + ' ' + self.info
+        return 'No.:' + str(self.auto_id_cliente) + ' - ' + self.nombre + ' ' + self.apellido + ' ' + self.info
 
 class Nota(models.Model):
     auto_id_nota = models.AutoField(primary_key=True)  

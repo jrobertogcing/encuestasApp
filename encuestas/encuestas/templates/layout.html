@@ -13,8 +13,8 @@
         <nav>
             <a href="{% url 'home' %}">Home Notas Reset</a>
             <a href="{% url 'menuUno:persona_create' %}">Registrar cliente</a>
-            <a href="{% url 'menuUno:nota_create' %}">Crear Nota</a>
-            <a href="{% url 'menuUno:item_create' %}">Agregar item</a>
+            <a href="{% url 'menuUno:nota_create' 1%}">Crear Nota</a>
+            <a href="{% url 'menuUno:item_create' 3 1 %}">Agregar item</a>
             <a href="{% url 'menuUno:persona_list' %}">Lista de clientes</a>
             <!-- <a href="{% url 'menuUno:nota_list' %}">Lista de Notas</a> -->
         </nav>

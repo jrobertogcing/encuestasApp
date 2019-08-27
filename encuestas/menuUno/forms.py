@@ -11,13 +11,6 @@ NOTA_CHOICES = [
     ('garantia', 'Garantía'),
     ]
 
-PERSONA_CHOICES = [
-    ('servicio_cliente', 'Cliente particular'),
-    ('servicio_empresa', 'Empresa'),
-    ('venta', 'Venta'),
-    ('garantia', 'Garantía'),
-    ]
-
 class RawPersonaForm(forms.Form):
     nombre = forms.CharField(required=True)
     apellido = forms.CharField(required=True)
@@ -26,9 +19,9 @@ class RawPersonaForm(forms.Form):
     email = forms.CharField(required=False)
     info = forms.CharField(required=False)
 
-class RawNotaForm(forms.Form):
-    tipo = forms.CharField(label='¿Qué tipo de nota es?', widget=forms.Select(choices=NOTA_CHOICES))
-    receptor = forms.CharField(required=True)
+# class RawNotaForm(forms.Form):
+#     tipo = forms.CharField(label='¿Qué tipo de nota es?', widget=forms.Select(choices=NOTA_CHOICES))
+#     receptor = forms.CharField(required=True)
 
 
 class NotaForm(forms.ModelForm):
@@ -58,15 +51,20 @@ class ItemForm(forms.ModelForm):
             'falla',
         )
 
-class RawItemForm(forms.Form):
-    descripción = forms.CharField(required=True)
-    serie = forms.CharField(required=True)
-    password = forms.CharField(required=False)
-    cargador = forms.CharField(required=False)
-    funda = forms.CharField(required=False)
-    cables = forms.CharField(required=False)
-    cartuchos = forms.CharField(required=False)
-    falla = forms.CharField(required=True)
+class RawNotaForm(forms.Form):
+    tipo = forms.CharField(required=True)
+    person = forms.CharField(required=True)
+    receptor = forms.Select(choices=NOTA_CHOICES)
+
+# class RawItemForm(forms.Form):
+#     descripción = forms.CharField(required=True)
+#     serie = forms.CharField(required=True)
+#     password = forms.CharField(required=False)
+#     cargador = forms.CharField(required=False)
+#     funda = forms.CharField(required=False)
+#     cables = forms.CharField(required=False)
+#     cartuchos = forms.CharField(required=False)
+#     falla = forms.CharField(required=True)
  
 
 # class PersonaForm(forms.ModelForm):

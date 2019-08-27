@@ -3,8 +3,70 @@
 {% block title %}Items-Reset Systems{% endblock %}}
 
 {% block content %}
-        <form method="POST"> {% csrf_token %}
-        {{form.as_p}}
-        <input  type='submit' value='Save' />  
-        </form>
+        <div class="cards">
+                <div class="card">
+                    <header>Agregar Item</header>
+                    <div class="card-copy">
+                        <form method="POST"> {% csrf_token %}
+                        {{form.as_p}}
+                        <input  type='submit' value='Save' />  
+                        </form>
+                    </div>  
+                </div>  
+            </div>  
+        <div class="cards">
+                <div class="card">
+                    <header> Nombre: {{ persona.nombre }} {{ persona.apellido }} </header>
+                    <div class="card-copy">
+                        <p>Teléfono celular:{{persona.celular}}</p>
+                        <p>Teléfono: {{persona.telefono}}</p>
+                        <p>Email: {{persona.email}}</p>
+                        <p>Información: {{persona.info}}</p>
+                    </div>      
+                </div>
+            </div>
+            <div class="cards">
+                    <div class="card">
+                            <header>
+                                <a>Nota: {{nota.auto_id_nota}}</a>
+                            </header>
+                        <div class="card-copy">
+                            {% load static %} <img src="{% static "images/logoreset.png" %}" alt="Reset Systems" height="31" width="82" />
+        
+                            <h3>Reset Systems.  &nbsp;&nbsp;&nbsp;&nbsp;  Teléfono: 574 97 97.  &nbsp;&nbsp;&nbsp;&nbsp;  Dirección: 8 Sur 3102. Puebla, México &nbsp;&nbsp;&nbsp;&nbsp; resetcompany.net</h3>
+                            <p>Nombre: {{ persona.nombre }} {{ persona.apellido }}</p>
+                            <p>Fecha y hora de ingreso: {{nota.created_at|date:"M d, Y. h:m:s"}}</p>
+                            <p>Nota:{{nota.tipo}}</p>
+                        </div>
+                    {% for item in nota.item_set.all %}
+                    <div class="card">
+                        <header>
+                            <a>Item</a>
+                        </header>
+                        <table>
+                            <tr>
+                                <th>Descripción</th>
+                                <th>Número de serie</th>
+                                <th>Password</th>
+                                <th>Cargador</th>
+                                <th>Funda</th>
+                                <th>Cables</th>
+                                <th>Cartuchos</th>
+                                <th>Falla</th>
+                            </tr>
+                            <tr> 
+                                <td>{{ item.descripción }}</td>
+                                <td>{{ item.serie }}</td>
+                                <td>{{ item.password }}</td>
+                                <td>{{ item.cargador }}</td>
+                                <td>{{ item.funda }}</td>
+                                <td>{{ item.cables }}</td>
+                                <td>{{ item.cartuchos }}</td>
+                                <td>{{ item.falla }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    {% endfor %}
+                </div>            
+        </div>
 {% endblock %}
