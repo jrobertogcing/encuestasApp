@@ -32,7 +32,7 @@ def persona_create_view(request):
             #print(my_form.cleaned_data)
             Persona.objects.create(**my_form.cleaned_data)
             personaId = Persona.objects.latest('auto_id_cliente') 
-            print(personaId.auto_id_cliente)
+            #print(personaId.auto_id_cliente)
             #persona = my_form.cleaned_data['person']
             return redirect('menuUno:nota_create', personaId.auto_id_cliente)
         else:
@@ -54,15 +54,15 @@ def nota_create_view(request, pk):
     if request.method == "POST":
         my_form = NotaForm(request.POST)
         if my_form.is_valid():
-            print(my_form.cleaned_data)
+            #print(my_form.cleaned_data)
             persona = my_form.cleaned_data['person']
-            print(persona)
+            #print(persona)
             pk = persona.auto_id_cliente
-            print(persona.auto_id_cliente)
+            #print(persona.auto_id_cliente)
             Nota.objects.create(**my_form.cleaned_data)
             personaDato = get_object_or_404(Persona, pk=pk)
             notaId = Nota.objects.latest('auto_id_nota') 
-            print(notaId.auto_id_nota)
+            #print(notaId.auto_id_nota)
             return redirect('menuUno:item_create', persona.auto_id_cliente, notaId.auto_id_nota)
         else:
             print(my_form.errors)

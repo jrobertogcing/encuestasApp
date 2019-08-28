@@ -3,13 +3,19 @@
 {% block title %}Notas Reset Home TEST{% endblock %}}
 
 {% block content %}
-{% load static %} <img src="{% static "images/logoreset.png" %}" alt="Reset Systems" height="62" width="162" />
 
+<div class="cards">
+    <div class="card">
+        {% load static %} <img src="{% static "images/logoreset.png" %}" alt="Reset Systems" height="62" width="162" />
+        <header>BETA Como registrasr una nota:</header>
+        <div class="card-copy">
+            <p>1- Registrar al cliente (solo en caso de que sea nuevo) </p>
+            <p>2- Crear nota,  seleccionar tipo de nota, al cliente  y capturar el nombre de quien recibe</p>  
+            <p>3- Agregar Item, seleccionar número de nota y agregar descripción de cada item recibido </p>
+            <p>4- Lista de clientes, seleccionar cliente, buscar la nota, dar click en el número </p>
+            <p>5- Imprimir nota en pantalla como PDF para mandar por correo o whatsApp</p>
+            {% endblock %}
+        </div>  
+    </div>  
+</div>  
 
-<h3> BETA Como registrasr una nota:</h3>
-<p>1- Registrar al cliente (solo en caso de que sea nuevo) </p>
-<p>2- Crear nota,  seleccionar tipo de nota, al cliente  y capturar el nombre de quien recibe</p>  
-<p>3- Agregar Item, seleccionar número de nota y agregar descripción de cada item recibido </p>
-<p>4- Lista de clientes, seleccionar cliente, buscar la nota, dar click en el número </p>
-<p>5- Imprimir nota en pantalla como PDF para mandar por correo o whatsApp</p>
-{% endblock %}
